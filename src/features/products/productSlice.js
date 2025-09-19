@@ -13,7 +13,7 @@ export const fetchProducts = createAsyncThunk (
     async (categorySlug='', thunkAPI) => {
         try {
             const resp  = await axios.get (
-                categorySlug ? `http://127.0.0.1:8000/api/products/?category=${categorySlug}` : 'http://localhost:8000/api/products'
+                categorySlug ? `https://lovegiftings-backend.onrender.com/api/products/?category=${categorySlug}` : 'http://localhost:8000/api/products'
             )
             return { category: categorySlug, data: resp.data };
         } catch (error) {

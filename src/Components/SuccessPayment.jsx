@@ -14,7 +14,7 @@ const SuccessPayment = () => {
   useEffect(()=>{
     async function verify() {
       try {
-        const resp = await axios.get(`http://127.0.0.1:8000/api/paystack/verify/${reference}/`);
+        const resp = await axios.get(`https://lovegiftings-backend.onrender.com/api/paystack/verify/${reference}/`);
         setResult(resp.data);
       } catch (error) {
         console.error("Verify failed:", error);

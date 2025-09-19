@@ -21,7 +21,7 @@ const MyOrders = () => {
                 return;
             }
 
-            const resp = await axios.get(`http://127.0.0.1:8000/api/orders/?session_id=${session_id}` );
+            const resp = await axios.get(`https://lovegiftings-backend.onrender.com/api/orders/?session_id=${session_id}` );
             // Some APIs return a single object, wrap it into array for consistency
             const data = Array.isArray(resp.data)? resp.data : [resp.data];
             setOrders(data);

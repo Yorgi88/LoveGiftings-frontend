@@ -32,7 +32,7 @@ const CartPage = () => {
 
   const handleRemove = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/cart/items/delete/${id}/`);
+      await axios.delete(`https://lovegiftings-backend.onrender.com/api/cart/items/delete/${id}/`);
       dispatch(fetchCartItems());
     } catch (error) {
       console.error("An error occurred", error);
@@ -96,7 +96,7 @@ const CartPage = () => {
               <Row className="align-items-center">
                 <Col xs={4}>
                   <img
-                    src={`http://127.0.0.1:8000${item.product.static_image}`}
+                    src={`https://lovegiftings-backend.onrender.com${item.product.static_image}`}
                     alt={item.product.name}
                     className="img-fluid rounded"
                     style={{ maxHeight: "120px", objectFit: "contain" }}

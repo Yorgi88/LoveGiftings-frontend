@@ -34,7 +34,7 @@ const CheckOut = () => {
     }
 
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/order/delete/${id}/`);
+      await axios.delete(`https://lovegiftings-backend.onrender.com/api/order/delete/${id}/`);
           Swal.fire({
             icon: "success",
             title: "Order Cancelled",
@@ -63,7 +63,7 @@ const CheckOut = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/paystack/initialize/", {
+        "https://lovegiftings-backend.onrender.com/api/paystack/initialize/", {
           order_id: checkoutSummary.id,
           email: email,
           amount: checkoutSummary.total_price,

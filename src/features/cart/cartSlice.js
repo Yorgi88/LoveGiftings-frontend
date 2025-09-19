@@ -18,7 +18,7 @@ export const addToCart = createAsyncThunk(
     async ({product_id, quantity, customizations}, {rejectWithValue}) => {
         const session_id = getSessionId();
         try {
-            const resp = await axios.post('http://127.0.0.1:8000/api/cart/add/', {
+            const resp = await axios.post('https://lovegiftings-backend.onrender.com/api/cart/add/', {
                 product_id: product_id,
                 quantity,
                 customizations,
@@ -36,7 +36,7 @@ export const fetchCartItems = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             const session_id = getSessionId();
-            const resp = await axios.get(` http://127.0.0.1:8000/api/cart/items/?session_id=${session_id}`);
+            const resp = await axios.get(` https://lovegiftings-backend.onrender.com/api/cart/items/?session_id=${session_id}`);
             return resp.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.response.data);
@@ -52,7 +52,7 @@ export const fetchCheckoutPage = createAsyncThunk(
     try {
       const session_id = getSessionId();
       const resp = await axios.get(
-        `http://127.0.0.1:8000/api/checkout/summary/?session_id=${session_id}`
+        `https://lovegiftings-backend.onrender.com/api/checkout/summary/?session_id=${session_id}`
       );
       return resp.data; // { order_id, total_price }
     } catch (error) {
@@ -68,7 +68,7 @@ export const deleteCartItem = createAsyncThunk(
     'cart/deleteCartItem',
     async (cartItemId, thunkAPI)=>{
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/cart/items/delete/${cartItemId}/`);
+            await axios.delete(`https://lovegiftings-backend.onrender.com/api/cart/items/delete/${cartItemId}/`);
             return cartItemId;  //we will return this so we can remove it in redux state
         } catch (error) {
             return thunkAPI.rejectWithValue(error.response.data)
@@ -83,7 +83,7 @@ export const checkoutCart = createAsyncThunk(
         const session_id = getSessionId();
 
         try {
-            const resp = await axios.post('http://127.0.0.1:8000/api/cart/checkout/', {
+            const resp = await axios.post('https://lovegiftings-backend.onrender.com/api/cart/checkout/', {
                 session_id,
             });
             return resp.data;
